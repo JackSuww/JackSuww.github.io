@@ -1,0 +1,41 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+          cache: "yarn"
+          
+      - name: yarn set version 
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: set version 4.6.0
+      - name: yarn install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
+      - name: yarn build
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build
+
+      - name: Deploy to GH Pages
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: hope-pages
+          build_dir: src/.vuepress/dist
+          fqdn: JackSu.love
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
