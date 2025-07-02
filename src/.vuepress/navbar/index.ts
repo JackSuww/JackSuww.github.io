@@ -19,6 +19,11 @@ export const Navbar = navbar([
         icon: "heart",
         link: "/website/treehole",
       },
+      {
+        text: "关于我",
+        icon: "circle-info",
+        link: "/website/resume",
+      },
     ],
   },
 ]);

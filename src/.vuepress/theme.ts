@@ -10,6 +10,16 @@ export default hopeTheme({
   author: {
     name: "JackSu",
   },
+  // 加密配置
+  encrypt: {
+    config: {
+      // 这会加密整个 guide 目录，并且两个密码都是可用的
+      // "/guide/": ["1234", "5678"],
+      // 这只会加密 /config/page.html
+      "/website/resume.html": "st",
+      "/website/AprilDay.html": "st",
+    },
+  },
 
   license: "MIT",
   favicon: "./favicon.ico",

@@ -1,6 +1,6 @@
 <template>
   <teleport to="body" v-if="isClient">
-    <transition name="popover-fade-slide-bounce">
+    <transition name="popover-fade">
       <div v-if="show" class="popover-content enhanced-popover">
         <button class="close-btn" @click="show = false" aria-label="关闭弹窗">&times;</button>
         <img src="/vx1.png" alt="加作者微信二维码" class="wechat-qr" />
@@ -21,7 +21,7 @@ const isClient = ref(false);
 function handleScroll() {
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  if (docHeight > 0 && scrollTop > docHeight / 4) {
+  if (docHeight > 0 && scrollTop > docHeight / 3) {
     show.value = true;
     window.removeEventListener("scroll", handleScroll);
   }
@@ -37,8 +37,6 @@ onUnmounted(() => {
 });
 </script>
 
-
-
 <style>
 .popover-content {
   position: fixed;
@@ -48,25 +46,27 @@ onUnmounted(() => {
   box-shadow: 0 8px 32px rgba(0,0,0,0.16);
   z-index: 10000;
   border-radius: 14px 0 0 14px;
-  padding: 20px 18px 16px 18px;
+  padding: 24px 22px 19px 22px;
   width: auto;
   min-width: 0;
-  max-width: 220px;
+  max-width: 264px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 14.4px;
   border: 1px solid #e8e8e8;
-  animation: popover-bounce-in 0.7s;
+  font-size: 1.2em;
+  /* 去掉动画 */
+  /* animation: popover-bounce-in 0.7s; */
 }
 
 .close-btn {
   position: absolute;
-  top: 8px;
-  right: 14px;
+  top: 9.6px;
+  right: 16.8px;
   background: none;
   border: none;
-  font-size: 22px;
+  font-size: 26.4px;
   color: #bbb;
   cursor: pointer;
   padding: 0;
@@ -78,26 +78,26 @@ onUnmounted(() => {
 }
 
 .wechat-qr {
-  width: 150px;
-  height: 170px;
-  border-radius: 8px;
+  width: 180px;
+  height: 204px;
+  border-radius: 9.6px;
   object-fit: cover;
   display: block;
   margin: 0 auto;
-  box-shadow: 0 2px 8px rgba(66,185,131,0.14);
-  border: 1.5px solid #e8f5e9;
+  box-shadow: 0 2.4px 9.6px rgba(66,185,131,0.14);
+  border: 1.8px solid #e8f5e9;
   transition: box-shadow 0.26s;
 }
 .wechat-qr:hover {
-  box-shadow: 0 4px 20px 0 rgba(66,185,131,0.18);
+  box-shadow: 0 4.8px 24px 0 rgba(66,185,131,0.18);
 }
 
 .desc {
-  font-size: 15px;
+  font-size: 18px;
   color: #222;
   margin: 0;
   text-align: center;
-  line-height: 1.7;
+  line-height: 2.04;
   word-break: break-word;
 }
 .desc b {
@@ -109,59 +109,26 @@ onUnmounted(() => {
   .popover-content {
     right: 0;
     left: auto;
-    top: 16px;
-    padding: 12px 2px 10px 2px;
-    max-width: 95vw;
-    border-radius: 12px;
+    top: 19.2px;
+    padding: 14.4px 2.4px 12px 2.4px;
+    max-width: 114vw;
+    border-radius: 14.4px;
   }
   .wechat-qr {
-    width: 90vw;
-    max-width: 168px;
+    width: 108vw;
+    max-width: 201.6px;
     height: auto;
   }
 }
 
-/* 新增弹出动效，结合淡入和弹跳 */
-@keyframes popover-bounce-in {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px) scale(.8);
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(10px) scale(1.05);
-  }
-  80% {
-    opacity: 1;
-    transform: translateY(-4px) scale(0.97);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+/* 淡入淡出，无缩放 */
+.popover-fade-enter-active, .popover-fade-leave-active {
+  transition: opacity 0.25s;
 }
-
-/* 新的弹窗动画：结合淡入、滑动和弹跳 */
-.popover-fade-slide-bounce-enter-active,
-.popover-fade-slide-bounce-leave-active {
-  transition:
-    opacity 0.45s cubic-bezier(.55,0,.1,1),
-    transform 0.45s cubic-bezier(.55,0,.1,1);
-}
-.popover-fade-slide-bounce-enter-from {
+.popover-fade-enter-from, .popover-fade-leave-to {
   opacity: 0;
-  transform: translateY(-40px) scale(.82);
 }
-.popover-fade-slide-bounce-enter-to {
+.popover-fade-enter-to, .popover-fade-leave-from {
   opacity: 1;
-  transform: translateY(0) scale(1);
-}
-.popover-fade-slide-bounce-leave-from {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-.popover-fade-slide-bounce-leave-to {
-  opacity: 0;
-  transform: translateY(-20px) scale(.96);
 }
 </style>

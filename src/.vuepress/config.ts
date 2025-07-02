@@ -2,16 +2,9 @@ import { defineUserConfig } from "vuepress";
 import { viteBundler } from "@vuepress/bundler-vite";
 import theme from "./theme.js";
 import { plugins } from './configs/plugins/';
-import {rootComponentsGlobal } from './components';
 
 
 export default defineUserConfig({
-
-
-  define: {
-    // 启用生产环境构建下激活不匹配的详细警告
-    __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'true'
-  },
   base: "/",
   lang: "zh-CN",
   title: "JackSu",
@@ -55,11 +48,5 @@ export default defineUserConfig({
 
   theme,
   plugins,
-//   enhance({ app, router, siteData }) {
-//     // 注册elementPlus
-//     // app.use(ElementPlus)
-//     // 注册自定义全局组件
-//     installComponent(app);
-// },
-// rootComponents: rootComponentsGlobal, // 注册全局组件，放在根节点
+
 });

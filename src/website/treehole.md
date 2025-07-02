@@ -6,7 +6,14 @@ comment: true
 ---
 
 <style>
+body {
+  margin: 0;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #f9fbff;
+  overflow-x: hidden;
+}
 
+/* 容器网格 */
 .treehole-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -14,9 +21,8 @@ comment: true
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   padding: 12px;
-}
-.treehole-container + .treehole-container {
-  padding-top: 0;  
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 992px) {
@@ -31,6 +37,7 @@ comment: true
   }
 }
 
+/* 卡片基础样式 */
 .treehole-card {
   background-color: #e6f2ff;
   border-radius: 12px;
@@ -38,174 +45,152 @@ comment: true
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.1);  
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  color: #2c3e50;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  white-space: pre-line;
+  z-index: 1;
+  user-select: none;
 }
 
 .treehole-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
   background-color: #f0f7ff;
-  border-color: rgba(0, 0, 0, 0.15); 
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
+/* 文本样式 */
 .treehole-text {
   font-size: 16px;
   line-height: 1.8;
-  color: #2c3e50;
   margin: 0;
-  font-weight: 400;
-  text-align: left;  
-  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-  letter-spacing: 0.5px;
-  white-space: pre-line;
+  text-align: left;
 }
 
-.treehole-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
-  background-color: #f0f7ff;
+/* 点击后的弹窗样式 */
+.treehole-card:target {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 80vw !important;
+  max-width: 600px !important;
+  max-height: 80vh !important;
+  overflow-y: auto;
+  background-color: #d9eaff !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+  border-color: #3a7bd5 !important;
+  padding: 30px !important;
+  border-radius: 16px !important;
+  z-index: 10000 !important;
+  cursor: default;
 }
 
+/* 弹窗内文本放大 */
+.treehole-card:target .treehole-text {
+  font-size: 20px;
+  line-height: 2;
+}
+
+/* 遮罩层 */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 9999;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* 当有target元素时，显示遮罩 */
+.treehole-card:target ~ #overlay {
+  display: block;
+}
+
+/* 移动端优化遮罩隐藏滚动 */
+body:has(.treehole-card:target) {
+  overflow: hidden;
+}
 </style>
 
 <div class="treehole-container">
-  <div class="treehole-card">
-    <p class="treehole-text">愿世事黯浊，你明媚如初。</p> 
+  <div class="treehole-card" id="card1" tabindex="0">
+    <p class="treehole-text">我轻轻地尝一口你说的爱我。</p> <!--《甜甜的》-->
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿此时平淡，若彼时灿烂。</p>
+  <div class="treehole-card" id="card2" tabindex="0">
+    <p class="treehole-text">无可奈何花落去，似曾相识燕归来。</p>
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你所得皆所期，所失亦无碍。</p>
+  <div class="treehole-card" id="card3" tabindex="0">
+    <p class="treehole-text">曾经沧海难为水，除却巫山不是云。</p>
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">生活百般滋味，人生需要笑对。</p>
+  <div class="treehole-card" id="card4" tabindex="0">
+    <p class="treehole-text">剪不断，理还乱，是离愁。</p>
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你一生欢喜，不为世俗所及。</p>
+  <div class="treehole-card" id="card5" tabindex="0">
+    <p class="treehole-text">故事的小黄花，从出生那年就飘着。</p> <!--《晴天》-->
   </div>
-    <div class="treehole-card">
-    <p class="treehole-text">愿生活不太拥挤，愿笑容不必刻意。</p>
+  <div class="treehole-card" id="card6" tabindex="0">
+    <p class="treehole-text">谁在用琵琶弹奏一曲东风破？</p> <!--《东风破》-->
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你不知人间疾苦，过得无拘无束。</p>
+  <div class="treehole-card" id="card7" tabindex="0">
+    <p class="treehole-text">衣带渐宽终不悔，为伊消得人憔悴。</p>
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你余生不负忧，自在如风常欢笑。</p>
+  <div class="treehole-card" id="card8" tabindex="0">
+    <p class="treehole-text">十年生死两茫茫，不思量，自难忘。</p>
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿岁月无可回顾，愿人生无可辜负。</p>
+  <div class="treehole-card" id="card9" tabindex="0">
+    <p class="treehole-text">天长地久有时尽，此恨绵绵无绝期。</p>
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你白天有说有笑，晚上睡个好觉。</p>
+  <div class="treehole-card" id="card10" tabindex="0">
+    <p class="treehole-text">你说把爱渐渐放下会走更远，又何必去改变已错过的时间。</p> <!--《说好的幸福呢》-->
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">但愿日子清静，抬头遇见的都是柔情。</p>
+  <div class="treehole-card" id="card11" tabindex="0">
+    <p class="treehole-text">回忆是抓不到的月光，握紧就变黑暗。</p> <!--《蒲公英的约定》-->
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你有酒可以醉，酒醒之后有人陪。</p>
+  <div class="treehole-card" id="card12" tabindex="0">
+    <p class="treehole-text">鸿雁在云鱼在水，惆怅此情难寄。</p>
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿童真不经岁月，愿青春不染离别。</p>
+  <div class="treehole-card" id="card13" tabindex="0">
+    <p class="treehole-text">天青色等烟雨，而我在等你。</p> <!--《青花瓷》-->
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你眼中总有光芒，活出你想要的模样。</p>
+  <div class="treehole-card" id="card14" tabindex="0">
+    <p class="treehole-text">独上高楼，望尽天涯路。</p>
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">祝你岁月无波澜，敬我余生不悲欢。</p>
+  <div class="treehole-card" id="card15" tabindex="0">
+    <p class="treehole-text">多情却被无情恼。</p>
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你习惯曲终人散，不再为谁独独悲欢。</p>
+  <div class="treehole-card" id="card16" tabindex="0">
+    <p class="treehole-text">去年今日此门中，人面桃花相映红。</p>
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你安好，宛若微风入侵泥沼，不气不恼。</p>
+  <div class="treehole-card" id="card17" tabindex="0">
+    <p class="treehole-text">惟将终夜长开眼，报答平生未展眉。</p>
   </div>
-  <div class="treehole-card">
-    <p class="treehole-text">只愿与你像旧时老友，春来赏花秋浓煮酒。</p>
+  <div class="treehole-card" id="card18" tabindex="0">
+    <p class="treehole-text">此去经年，应是良辰好景虚设。</p>
+  </div>
+  <div class="treehole-card" id="card19" tabindex="0">
+    <p class="treehole-text">梦里不知身是客，一晌贪欢。</p>
+  </div>
+  <div class="treehole-card" id="card20" tabindex="0">
+    <p class="treehole-text">桃李春风一杯酒，江湖夜雨十年灯。</p>
+  </div>
+  <div class="treehole-card" id="card21" tabindex="0">
+    <p class="treehole-text">人生若只如初见，何事秋风悲画扇。</p>
+  </div>
+  <div class="treehole-card" id="card22" tabindex="0">
+    <p class="treehole-text">雨下整夜，我的爱溢出就像雨水。</p> <!--《借口》-->
+  </div>
+  <div class="treehole-card" id="card23" tabindex="0">
+    <p class="treehole-text">还记得你说家是唯一的城堡。</p> <!--《稻香》-->
+  </div>
+  <div class="treehole-card" id="card24" tabindex="0">
+    <p class="treehole-text">问君能有几多愁？恰似一江春水向东流。</p>
   </div>
 </div>
 
-<div class="treehole-container">
-  <div class="treehole-card">
-    <p class="treehole-text">愿我的故事细水长流，敬你的孤独择日而终。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你余生笑得坦荡，往后再无任何风雨阻挡。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你安睡时山河入梦，愿你醒来时满目春风。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">希望你，成熟稳重，绝处逢生，越活越优秀。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你岁月波澜有人陪，祝我悲欢余生有人听。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">因为孤独是生命的常态，陪伴才显得格外珍贵。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你所到之处皆为热土，愿你所遇之人皆为良善。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你夜里有灯，梦里有人，平安喜乐，得偿所愿。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">祝你坚强，祝你可爱，祝你一生向前，永不回头。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你前程似锦再无波澜，愿你衣锦还乡再无苦难。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">祝你所求皆如愿，所行化坦途。多喜乐，长安宁。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">天生爱自由无人能束缚，却腻了孤独，怕了辜负。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你所有快乐，无需假装，愿你此生尽兴，赤诚善良。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你霜尘梦不朽，也有白月牵衣袖，也有春秋抚眉头。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿有人给你波澜不惊的爱情，陪你看细水长流的风景。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">希望岁月赐予你我如同往昔不变的明日，哪怕历经沧桑，也依然保持可爱与纯良。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你眉眼如初，不负相思之苦。愿你还能找到来时的路，从未有过孤独。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">静待时光清浅，岁月流转，把酒言欢。梦里，青春与你我不似初见。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">青涩不及当初，聚散不由你我。愿有岁月可回首，且以情深共白头。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">山有峰顶，海有彼岸，漫漫长途，终有回转，余味苦涩，终有回甘。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">我们仍需共生命的慷慨与繁华相爱，即使岁月以刻薄和荒芜相欺。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿我们一如既往的坚强，风再大又能怎样，最美的梦就在前方。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">希望你永远明朗坦荡钟情豁达，有得有失有坚持，能笑能哭能尽欢。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你被这个世界温柔以待，心中装满爱，卸下所有防备，自由自在。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你一生有山可靠，有树可栖。与心爱之人，春赏花，夏纳凉，秋登山，冬扫雪。</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿你十里春天，愿你风光无限，愿你记得经年西笑罢秋霜，愿你此情久长莫惘然。
-</p>
-  </div>
-  <div class="treehole-card">
-    <p class="treehole-text">愿时光能缓，愿故人不散，愿你惦念的人能和你道晚安，愿你独闯的日子里不觉得孤单。</p>
-  </div>
-</div>
+<!-- 遮罩层，用于关闭弹窗 -->
+<a href="#" id="overlay" title="关闭"></a>
