@@ -4,6 +4,10 @@ import theme from "./theme.js";
 import { plugins } from './configs/plugins/';
 
 
+
+
+
+
 export default defineUserConfig({
   base: "/",
   lang: "zh-CN",
@@ -50,3 +54,5 @@ export default defineUserConfig({
   plugins,
 
 });
+
+

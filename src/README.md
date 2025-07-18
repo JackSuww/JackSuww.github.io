@@ -29,4 +29,4 @@ projects:
 ---
 <BulletinPopover/>
 
-<!-- 启动命令 pnpm run dev 更换node版本18.12 -->
+<!-- 启动命令 yarn run dev 更换node版本18.12 -->

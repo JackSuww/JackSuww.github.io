@@ -4,12 +4,14 @@ import { Navbar } from "./navbar/index.js";
 import { Sidebar } from "./sidebar/index.js";
 
 
+
 export default hopeTheme({
   hostname: "https://JackSu.love/",
 
   author: {
     name: "JackSu",
   },
+  
   // 加密配置
   encrypt: {
     config: {
@@ -97,7 +99,7 @@ export default hopeTheme({
       excerpt: true,
       excerptLength: 100,
     },
-      
+
     // 评论配置
     comment: {
       provider: "Giscus",

@@ -119,13 +119,13 @@ body:has(.treehole-card:target) {
 
 <div class="treehole-container">
   <div class="treehole-card" id="card1" tabindex="0">
-    <p class="treehole-text">我轻轻地尝一口你说的爱我。</p> <!--《甜甜的》-->
+    <p class="treehole-text">天空灰得像哭过。</p> <!--《甜甜的》-->
   </div>
   <div class="treehole-card" id="card2" tabindex="0">
-    <p class="treehole-text">无可奈何花落去，似曾相识燕归来。</p>
+    <p class="treehole-text">似曾相识燕归来。</p>
   </div>
   <div class="treehole-card" id="card3" tabindex="0">
-    <p class="treehole-text">曾经沧海难为水，除却巫山不是云。</p>
+    <p class="treehole-text">除却巫山不是云。</p>
   </div>
   <div class="treehole-card" id="card4" tabindex="0">
     <p class="treehole-text">剪不断，理还乱，是离愁。</p>
@@ -134,16 +134,16 @@ body:has(.treehole-card:target) {
     <p class="treehole-text">故事的小黄花，从出生那年就飘着。</p> <!--《晴天》-->
   </div>
   <div class="treehole-card" id="card6" tabindex="0">
-    <p class="treehole-text">谁在用琵琶弹奏一曲东风破？</p> <!--《东风破》-->
+    <p class="treehole-text">江南无所有,聊赠一枝春</p> <!--《东风破》-->
   </div>
   <div class="treehole-card" id="card7" tabindex="0">
-    <p class="treehole-text">衣带渐宽终不悔，为伊消得人憔悴。</p>
+    <p class="treehole-text">为伊消得人憔悴</p>
   </div>
   <div class="treehole-card" id="card8" tabindex="0">
     <p class="treehole-text">十年生死两茫茫，不思量，自难忘。</p>
   </div>
   <div class="treehole-card" id="card9" tabindex="0">
-    <p class="treehole-text">天长地久有时尽，此恨绵绵无绝期。</p>
+    <p class="treehole-text">天长地久有时尽</p>
   </div>
   <div class="treehole-card" id="card10" tabindex="0">
     <p class="treehole-text">你说把爱渐渐放下会走更远，又何必去改变已错过的时间。</p> <!--《说好的幸福呢》-->
@@ -164,7 +164,7 @@ body:has(.treehole-card:target) {
     <p class="treehole-text">多情却被无情恼。</p>
   </div>
   <div class="treehole-card" id="card16" tabindex="0">
-    <p class="treehole-text">去年今日此门中，人面桃花相映红。</p>
+    <p class="treehole-text">人面桃花相映红。</p>
   </div>
   <div class="treehole-card" id="card17" tabindex="0">
     <p class="treehole-text">惟将终夜长开眼，报答平生未展眉。</p>
