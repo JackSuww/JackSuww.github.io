@@ -1,0 +1,15 @@
+Category,Chinese,English,Symbol,1 unit = ? (g),Notes
+Weight,毫克,Milligram,mg,0.001,SI: 1 mg = 0.001 g
+Weight,克,Gram,g,1,SI base for mass in this sheet
+Weight,千克,Kilogram,kg,1000,
+Weight,公吨,Metric tonne,t,1000000,
+Weight,金衡盎司 (金衡 oz),Troy ounce,oz t,31.1034768,国际贵金属报价常用单位（如金价以 USD / troy oz 报价）
+Weight,金衡磅,Troy pound,,373.2417216,1 troy lb = 12 troy oz
+Weight,便士重量 (Pennyweight),Pennyweight,dwt,1.55517384,1 dwt = 1/20 troy oz
+Weight,格令,Grain,gr,0.06479891,1 troy oz = 480 grains
+Weight,常衡盎司 (日常 oz),Avoirdupois ounce,oz,28.349523125,常见非金衡盎司（食品/日常重量）
+Weight,磅,Avoirdupois pound,lb,453.59237,
+Weight,两 (市两，内地常用),Tael (Mainland liang),liang,50,中国大陆珠宝/金饰常用市两 = 50 g（市场习惯）
+Weight,钱 (市钱),Qian (1/10 liang),qian,5,当以市两 50 g 计则 1 钱 = 5 g
+Weight,斤 (市斤),Catty (jin),jin,500,1 斤 = 500 g（大陆市制）
+Weight,托拉 (印度/南亚用),Tola,tola,11.6638038,南亚及部分黄金交易地区使用
