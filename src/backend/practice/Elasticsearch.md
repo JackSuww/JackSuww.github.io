@@ -2,6 +2,9 @@
 title: 使用 Docker Compose 部署 Elasticsearch + Kibana
 date: 2023-10-06
 author: JackSu
+index: true
+sticky: 1
+
 categories:
   - 工具
 tags:

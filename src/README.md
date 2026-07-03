@@ -14,7 +14,7 @@ projects:
   - name: 开发实践
     icon: laptop-code
     desc: 后端开发、微服务架构、数据库优化、容器化部署等技术实践总结
-    link: /backend/practice/ceph
+    link: /backend/practice/web-deploy
 
   - name: 大语言模型
     icon: headset

@@ -6,7 +6,7 @@
         <img src="/vx1.png" alt="加作者微信二维码" class="wechat-qr" />
         <div class="desc">
           <b>加作者微信🎉</b><br>
-          扫码备注<b>【加群】</b>
+          <!-- 扫码备注<b>【加群】</b> -->
         </div>
       </div>
     </transition>

@@ -2,6 +2,8 @@
 title: 大模型技术入门
 date: 2024-06-17
 author: JackSu
+index: true
+sticky: 1
 categories:
   - 人工智能
 tags:

@@ -2,6 +2,7 @@
 title: Update 未加索引导致的微服务模块不可用
 date: 2024-06-14
 author: JackSu
+sticky: 1
 categories:
   - Java
 tags:

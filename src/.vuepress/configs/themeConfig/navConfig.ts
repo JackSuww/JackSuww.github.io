@@ -75,7 +75,7 @@ const nav: NavbarConfig = [
     children: [
       {
         text: '掘金',
-        link: 'https://juejin.cn/user/4142615542920680'
+        link: 'https://juejin.cn/user/1119752693233003'
       },
       {
         text: 'segmentfault',
@@ -83,7 +83,7 @@ const nav: NavbarConfig = [
       },
       {
         text: 'github',
-        link: 'https://github.com/maicFir'
+        link: 'https://github.com/JackSuww'
       }
     ]
     },

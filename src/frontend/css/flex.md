@@ -8,7 +8,7 @@ tags:
  - Vue
 ---
 
-###盒子模型
+### 盒子模型
 
 1.将所有元素表示为一个矩形的盒子，每个盒子包括内容边界（width，height，background-image）、
 内边距边界（paddig）内边距的粗细可以由 padding-top、padding-right、padding-bottom、padding-left，和简写属性 padding 控制。
